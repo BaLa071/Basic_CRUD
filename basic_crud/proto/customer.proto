@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package Customer;
+
+option go_package="github.com/BaLa071";
+
+service CustomerService {
+    rpc Create(CreateReq)returns(CreateRes);
+    rpc Read(ReadReq)returns (ReadRes);
+    rpc Update(UpdateReq)returns(UpdateRes);
+    rpc Delete(DeleteReq)returns(DeleteRes);
+}
+
+message CreateReq {
+    int32 Id=1;
+    string Name=2;
+    string Email=3;
+    string Password=4;
+    float Salary=5;
+    string Address=6;
+}
+
+message CreateRes {
+    string Message=1;
+}
+
+message ReadReq {
+    int32 Id=1;
+}
+
+message ReadRes {
+    int32 Id=1;
+    string Name=2;
+    string Email=3;
+    string Password=4;
+    float Salary=5;
+    string Address=6;
+}
+
+message UpdateReq {
+    int32 Id=1;
+    string Feild=2;
+    string Value=3;
+}
+
+message UpdateRes {
+    string Message=1;
+}
+
+message DeleteReq {
+    int32 Id=1;
+}
+
+message DeleteRes {
+    string Message=1;
+}
